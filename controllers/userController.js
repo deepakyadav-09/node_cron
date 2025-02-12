@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv').config()
 console.log(process.env.EMAIL_ID, process.env.PASS_KEY)
 
-
 const data = (req, res) => {
     console.log('testing of node-cron and sending email');
 
@@ -31,8 +30,7 @@ const data = (req, res) => {
         })
     }
    
-
-    cron.schedule("1 * * * * *",  emailSenderFunction()
+    cron.schedule("* * * * *",  emailSenderFunction()
     .then(value => console.log('email sended sucessfully', value),
         (err => console.log('something wrong'))))
     res.send({
